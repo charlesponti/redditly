@@ -1,17 +1,32 @@
 {
-  "name": "boiler-frontend",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
+  "name": "boiler-static",
+  "version": "0.0.1",
+  "description": "A boilerplate for a static site",
+  "main": "gulpfile.js",
+  "scripts": {
     "test": "test"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/theponti/boiler-static.git"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "~3.5.6"
+  "keywords": [
+    "static",
+    "node",
+    "html",
+    "css"
+  ],
+  "author": "CJ Ponti <cjponti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theponti/boiler-static/issues"
+  },
+  "homepage": "https://github.com/theponti/boiler-static",
+  "dependencies": {
+    "gulp": "~3.6.0",
+    "gulp-util": "~2.2.14",
+    "gulp-jshint": "~1.5.1",
+    "gulp-livereload": "~1.2.0",
+    "node-static": "~0.7.3"
   }
 }
