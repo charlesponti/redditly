@@ -24,25 +24,29 @@
 	<meta name="description" content="" />
 
 	<!-- Helper Libs -->
-	<script src="assets/libs/prefix-free/prefixfree.min.js"></script>
-	<script src="assets/libs/modernizr/modernizr.js"></script>
-	<link rel='stylesheet' href="assets/libs/normalize.css/normalize.css" />
+	<script src="public/libs/prefix-free/prefixfree.min.js"></script>
+	<script src="public/libs/modernizr/modernizr.js"></script>
+	<link rel='stylesheet' href="public/libs/normalize.css/normalize.css" />
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="public/css/main.css">
 </head>
 <body>
+	<!-- HTML5 SHIM -->
 	<!--[if lte IE 8]>
 		<script>(function(){var e="abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i]);}}());</script>
 	<![endif]-->
 	<div id="container">
 
-		<h1>Boiler Front-end Boilerplate</h1>
-
+		<h1 class="page-title">Reddit.ly</h1>
+		<div class="reddit-query">
+			<input id="reddit-query" placeholder="Search" />
+		</div>
+		<div id='reddit-results'></div>
 	</div>
 
 	<!-- JavaScript -->
-	<script src="assets/libs/jquery/dist/jquery.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="public/libs/jquery/dist/jquery.min.js"></script>
+	<script src="public/js/main.js"></script>
 </body>
 </html>

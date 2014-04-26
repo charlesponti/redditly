@@ -4,7 +4,6 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var livereload = require('gulp-livereload');
 var gutil = require('gulp-util');
-var staticServer = require('node-static');
 var http = require('http');
 
 var jsHint = function() {
@@ -20,11 +19,15 @@ var lessLint = function() {
 		.pipe(gulp.dest('public/css'));
 };
 
+var watchFiles = function() {
+	gulp.watch('assets/less/**/*.less', [ 'less' ]);
+	gulp.watch('assets/js/**/*.js', [ 'jshint' ]);
+};
+
 var staticServer = function(next) {
 	var staticS = require('node-static');
-	var server = new staticServer.Server('./');
-	var port = 3000;
-
+	var server = new staticS.Server('./');
+	var port = 4000;
 	http.createServer(function (request, response) {
 		request.addListener('end', function () {
 			server.serve(request, response);
@@ -38,9 +41,6 @@ var staticServer = function(next) {
 gulp.task('server', staticServer);
 gulp.task('jshint', jsHint);
 gulp.task('less', lessLint);
-
-gulp.task('watch', function() {
-	gulp.watch('assets/**/*.less', [ 'less' ]);
-});
-
-gulp.task('default', [ 'server' ]);
+gulp.task('watch', watchFiles);
+gulp.task('build', ['less', 'jshint']);
+gulp.task('default', [ 'server', 'build', 'watch' ]);

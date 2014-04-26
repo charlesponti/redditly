@@ -1,3 +1,8 @@
+body {
+	font-family: 'Helvetica Neue', sans-serif;
+	font-style: 15px;
+}
+
 /**
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -30,4 +35,59 @@
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
     box-sizing: border-box;
+}
+
+#container {
+	padding: 2rem;
+}
+
+.page-title {
+	text-align: center;
+	font-size: 3rem;
+}
+
+/**
+ * POSITIONING
+ */
+.inline { display: inline-block; }
+.left { float: left; background-color: yellow; }
+.right { float: right; background-color: blue; }
+
+/**
+ * Reddit
+ */
+.reddit-query {
+	height: 3rem;
+	text-align: center;
+	input {
+		height: 100%;
+		width: 60%;
+		text-align: center;
+		font-size: 2rem;
+		&:focus {
+			outline: none;
+		}
+	}
+}
+#reddit-results {
+	margin: 0 auto;
+}
+.reddit-pic-box {
+	height: 20rem; width: 30rem;
+	text-align: center;
+	margin: 2rem;
+	float: left;
+	img { height: 100%; }
+}
+.reddit-text-box {
+	width: 80%;
+	margin: 2rem auto;
+	text-align: center;
+	font-size: 1.5rem;
+	a {
+		font-family: 'Helvetica';
+		color: black;
+		font-weight: 600;
+		text-decoration: none;
+	}
 }
