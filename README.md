@@ -1,3 +1,3 @@
 # Reddit.ly
 
-I made this because I love Reddit, but I hate reading their site.
+Hacked this together this morning because I love Reddit, but I hate reading their site.
