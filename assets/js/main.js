@@ -1,7 +1,8 @@
 $(function() {
 
-    var  redditBox = $('#reddit-results');
-    var inputBox = $('#reddit-query');
+    var imagesContainer = $("#reddit-images");
+    var textContainer = $("#reddit-text");
+    var inputBox = $("#reddit-query");
     var redditURL = "http://www.reddit.com";
 
     var onInputKeyPress = function(event) {
@@ -11,23 +12,26 @@ $(function() {
     };
 
     var makeRedditTextBox = function(data) {
-            return [
-                '<div class="reddit-text-box">',
-                    '<a href="' + redditURL + data.permalink+ '">',data.title,'</a>',
-                '</div>'
-            ].join('');
+        return [
+            '<div class="reddit-text-box">',
+                '<a href="' + redditURL + data.permalink+ '">',data.title,'</a>',
+            '</div>'
+        ].join('');
     };
 
     var makeRedditPicBox = function(data) {
-            return [
-                '<div class="reddit-pic-box">',
-                    '<a href="' + redditURL + data.permalink+ '">',
-                        '<img src='+data.url+'/>',
-                    '</a>',
-                '</div>'
-            ].join('');
+        return [
+            '<div class="reddit-pic-box">',
+                '<a href="' + redditURL + data.permalink+ '">',
+                    '<img src='+data.url+'/>',
+                '</a>',
+            '</div>'
+        ].join('');
     };
 
+    var isImage = function(imageURL) {
+        return imageURL.slice(imageURL.length-4) === '.jpg';
+    }
     /**
      * Returns HTML for div containing reddit image
      * @param   {string} permalink - URL to reddit page
@@ -35,22 +39,32 @@ $(function() {
      * @return  {String}           [description]
      */
     var makeRedditBox = function(data) {
-        var isImage = data.url.slice(data.url.length-4) === '.jpg';
-        return isImage ? makeRedditPicBox(data) : makeRedditTextBox(data);
+        return isImage(data.url) ? makeRedditPicBox(data) : makeRedditTextBox(data);
     };
 
-    var populateRedditWithQuery = function(query) {
-        redditBox.html('');
+    var addChildTo = function(box, child) {
+        box.html(box.html() + makeRedditBox(child.data))
+    };
+
+    var populateRedditWithQuery = function(query, box) {
+        imagesContainer.html('Loading...');
+        textContainer.html('Loading...');
         $.get(redditURL+'/r/'+query+'/.json')
             .success(function(res) {
+                imagesContainer.html('');
+                textContainer.html('');
                 res.data.children.forEach(function(child) {
-                    redditBox.html(redditBox.html() + makeRedditBox(child.data) );
+                    if (isImage(child.data.url)) {
+                        addChildTo(imagesContainer, child);
+                    } else {
+                        addChildTo(textContainer, child);
+                    }
                 });
             })
             .error(function(res) {
-                console.log('meow');
+                
             });
-    }
+    };
 
     inputBox.on('keyup', onInputKeyPress);
 
