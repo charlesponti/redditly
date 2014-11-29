@@ -1,7 +1,7 @@
 {
-  "name": "boiler-static",
+  "name": "Facade",
   "version": "0.0.1",
-  "homepage": "https://github.com/theponti/boiler-static",
+  "homepage": "https://github.com/theponti/facade",
   "authors": [
     "CJ Ponti <cjponti@gmail.com>"
   ],
@@ -20,12 +20,13 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "public/libs"
   ],
   "dependencies": {
     "jquery": "~2.1.0",
-    "normalize.css": "~3.0.1",
     "modernizr": "~2.7.2",
-    "prefix-free": "gh-pages"
+    "prefix-free": "gh-pages",
+    "bootstrap": "~3.3.1"
   }
 }
