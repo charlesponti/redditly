@@ -12,8 +12,6 @@ router.init();
 
 var service = require('./service');
 
-
-
 var imagesContainer = $("#reddit-images");
 var textContainer = $("#reddit-text");
 var inputBox = $("#reddit-query");
@@ -31,32 +29,24 @@ var onInputKeyPress = function(event) {
     service
     .search(this.value)
     .success(function(res) {
-      res.data.children.forEach(function(child) {
-        if (isImage(child.data.url)) {
-          addChildTo(imagesContainer, child);
-        } else {
-          addChildTo(textContainer, child);
-        }
-      });
+      res.data.children.forEach(renderStory);
     })
-    .then(function(res) {});
+    .then(function(res) {
+      throw new Error(res.message);
+    });
   }
 };
 
-// # Returns HTML for div containing reddit image
-// # @param   {string} permalink - URL to reddit page
-// # @param   {string} imageURL - URL for image
-// # @return  {String}           [description]
-var makeRedditBox = function(data) {
+/**
+ * Returns HTML for div containing reddit image
+ * @param {object} data
+ */
+var renderStory = function(data) {
   if (isImage(data.url)) {
-    // makeRedditPicBox(data);
+    React.render(picBox, imagesContainer);
   } else {
-    // makeRedditTextBox(data);
+    React.render(picBox, textContainer);
   }
-};
-
-var addChildTo = function(box, child) {
-  box.html(box.html() + makeRedditBox(child.data));
 };
 
 inputBox.on('keyup', onInputKeyPress);
