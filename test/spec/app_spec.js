@@ -23,8 +23,9 @@ describe('App Component', function() {
   describe('.onSubmit()', function() {
     it('should call service.search', function() {
       var $ = require('jquery');
+      var promise = (new $.Deferred()).promise();
       var service = require('../../src/app/service');
-      spyOn(service, 'search').and.returnValue((new $.Deferred()).promise());
+      spyOn(service, 'search').and.returnValue(promise);
       component = TestUtils.renderIntoDocument(App());
       component.onSubmit({
         preventDefault:function() {},
@@ -33,6 +34,24 @@ describe('App Component', function() {
         }
       });
       expect(service.search).toHaveBeenCalled();
+    });
+  });
+
+  describe('.onSearchSuccess()', function() {
+    it('should set state of component', function() {
+      var response = {
+        data: {
+          children: [
+            { data: 'foo' },
+            { data: 'bar' }
+          ]
+        }
+      };
+      component = TestUtils.renderIntoDocument(App());
+      spyOn(component, 'setState').and.callThrough();
+      component.onSearchSuccess(response);
+      expect(component.setState).toHaveBeenCalled();
+      expect(component.state.stories).toEqual(['foo','bar']);
     });
   });
 
