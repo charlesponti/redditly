@@ -24,7 +24,7 @@ var Story = React.createClass({
    */
   render: function() {
     return (
-      <li className="list-group-item" key={this.props.link.id}>
+      <li className="list-group-item story" key={this.props.link.id}>
         <a href={this.props.link.url}>{this.props.link.title}</a>
       </li>
     );
