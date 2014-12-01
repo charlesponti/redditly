@@ -32,11 +32,9 @@ gulp.task 'jshint', ()->
     .pipe gulp.dest(files.scripts.build)
 
 gulp.task 'build-scripts', (done)->
-  webpack webpack_config.dev, (err, stats)->
-
+  webpack webpack_config, (err, stats)->
     if err
       throw new gutil.PluginError '[build-js]', err
-
     done()
 
 gulp.task 'build-styles', ()->
