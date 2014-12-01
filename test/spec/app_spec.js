@@ -42,8 +42,8 @@ describe('App Component', function() {
       var response = {
         data: {
           children: [
-            { data: 'foo' },
-            { data: 'bar' }
+            { data: { id: 'foo' } },
+            { data: { id: 'bar' } }
           ]
         }
       };
@@ -51,7 +51,10 @@ describe('App Component', function() {
       spyOn(component, 'setState').and.callThrough();
       component.onSearchSuccess(response);
       expect(component.setState).toHaveBeenCalled();
-      expect(component.state.stories).toEqual(['foo','bar']);
+      expect(component.state.stories).toEqual([
+        { id: 'foo' },
+        { id: 'bar' }
+      ]);
     });
   });
 
