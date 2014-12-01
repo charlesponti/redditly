@@ -2,7 +2,8 @@
 
 var React = require('react');
 var Backbone = require('backbone');
-var Main = require('./main');
+
+var Main = require('./main.jsx');
 
 var AppRouter = Backbone.Router.extend({
 
@@ -16,7 +17,7 @@ var AppRouter = Backbone.Router.extend({
    * Render Main component
    */
   home: function() {
-    React.render(new Main(), document.querySelector('#app'));
+    React.render(React.createFactory(Main), document.querySelector('#app'));
   },
 
   init: function() {
