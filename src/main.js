@@ -7,5 +7,5 @@ Backbone.$ = $;
 var React = require('react');
 
 // Start Router
-var router = require('./app/router');
-router.init();
+var router = require('./app/router.jsx');
+router.init(); 
