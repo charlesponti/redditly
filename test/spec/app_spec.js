@@ -4,7 +4,7 @@ describe('App Component', function() {
   var component,
     React = require('react/addons'),
     TestUtils = React.addons.TestUtils,
-    App = React.createFactory(require('../../src/app/main.jsx'));
+    App = require('../../src/app/main.jsx');
 
   afterEach(function() {
     if (component && component.isMounted()) {
