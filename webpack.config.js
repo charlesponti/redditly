@@ -3,7 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-exports.dev = {
+module.exports = {
 
 	target: "web",
 
