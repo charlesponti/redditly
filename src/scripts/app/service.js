@@ -9,7 +9,9 @@ var service = {
    * @return {$.Promise}
    */
   search: function(query) {
-    return $.get("http://www.reddit.com/r/"+query+'/.json');
+    if (query) {
+      return $.get("http://www.reddit.com/r/"+query+'/.json');
+    }
   }
 };
 
