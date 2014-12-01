@@ -26,11 +26,13 @@ var StoryList = React.createClass({
    * @return {ReactElement}
    */
   render: function() {
+    var links = _.map(this.props.links, function(link) {
+      return <Story link={link} key={link.id}/>;
+    });
+    
     return (
       <ul className="list-group">
-        {_.map(this.props.links, function(link) {
-          return <Story link={link} key={link.id}/>;
-        })}
+        {links}
       </ul>
     );
   }
