@@ -21,6 +21,16 @@ module.exports = function(config) {
       'Chrome'
     ],
 
+    webpack: {
+      module: {
+        loaders: [
+          { test: /\.css$/, loader: "style!css" },
+          { test: /\.jsx$/, loader: "jsx-loader" },
+          { test: /\.less$/, loader: "style-loader!css-loader!less-loader" }
+        ]
+      },
+    },
+
     webpackServer: {
       noInfo: true
     },

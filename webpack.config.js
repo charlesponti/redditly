@@ -9,9 +9,11 @@ exports.dev = {
 
 	debug: true,
 
+	cache: false,
+
 	devtool: "source-map",
 
-	entry: "./src/scripts/main.js",
+	entry: "./src/main.js",
 
 	output: {
 		path: "./build/scripts",

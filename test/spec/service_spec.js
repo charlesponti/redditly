@@ -2,16 +2,11 @@
 
 describe('Service', function() {
 
-  var service;
+  var service = require('../../src/app/service');
   var $ = require('jquery');
 
   beforeEach(function() {
     spyOn($, 'get');
-    service = require('../../src/scripts/app/service');
-  });
-
-  afterEach(function() {
-    service = undefined;
   });
 
   describe('.search()', function() {

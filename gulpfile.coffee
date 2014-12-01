@@ -60,7 +60,7 @@ gulp.task 'watch', ()->
     .pipe watch({ glob: files.scripts.source }, ['build-scripts'])
 
 gulp.task 'server', ()->
-  server = require('./src/server')
+  server = require('./server')
   server.start()
 
 gulp.task 'build', [ 'build-styles', 'build-scripts' ]

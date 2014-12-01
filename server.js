@@ -13,10 +13,10 @@ var app = express();
 app.set('port', 3000);
 
 // Set views directory
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, './src/views'));
 
 // Set public directory
-app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, './build')));
 
 // Disable caching of views
 swig.setDefaults({ cache: false });

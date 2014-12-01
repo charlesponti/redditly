@@ -37,7 +37,7 @@ var Main = React.createClass({
     event.preventDefault();
     service
       .search(event.target.query.value)
-      .success(this.onSearchSuccess)
+      .done(this.onSearchSuccess)
       .fail(function(res) {
         throw new Error(res.message);
       });
