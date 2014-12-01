@@ -4,7 +4,6 @@ var http = require('http');
 var path = require('path');
 var swig = require('swig');
 var express = require('express');
-var engines = require('consolidate');
 
 // Create app
 var app = express();
