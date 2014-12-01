@@ -37,7 +37,6 @@ module.exports = function(config) {
 
     plugins: [
       'karma-jasmine',
-      'karma-coffee-preprocessor',
       'karma-chrome-launcher',
       require('karma-webpack')
     ]
