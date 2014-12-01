@@ -1,7 +1,7 @@
 {
-  "name": "Facade",
+  "name": "Redditly",
   "version": "0.0.1",
-  "description": "A boilerplate for a static site",
+  "description": "A Reddit reader application",
   "main": "gulpfile.js",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js"

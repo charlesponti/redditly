@@ -4,13 +4,13 @@ module.exports = function(config) {
   config.set({
 
     files: [
-      'spec/**/*.coffee'
+      'index.js'
     ],
 
     autoWatch: true,
 
     preprocessors: {
-      'spec/**/*.coffee': ['coffee']
+      'index.js': ['webpack']
     },
 
     frameworks: [
@@ -21,10 +21,15 @@ module.exports = function(config) {
       'Chrome'
     ],
 
+    webpackServer: {
+      noInfo: true
+    },
+
     plugins: [
       'karma-jasmine',
       'karma-coffee-preprocessor',
-      'karma-chrome-launcher'
+      'karma-chrome-launcher',
+      require('karma-webpack')
     ]
 
   });
