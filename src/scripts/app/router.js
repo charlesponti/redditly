@@ -3,7 +3,7 @@
 var React = require('react');
 var Backbone = require('backbone');
 
-var Main = React.createFactory(require('./main'));
+var Main = React.createFactory(require('./main.jsx'));
 
 var AppRouter = Backbone.Router.extend({
 
