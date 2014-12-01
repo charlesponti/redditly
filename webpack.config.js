@@ -11,7 +11,7 @@ exports.dev = {
 
 	devtool: "source-map",
 
-	entry: "./src/scripts/main.jsx",
+	entry: "./src/scripts/main.js",
 
 	output: {
 		path: "./build/scripts",
