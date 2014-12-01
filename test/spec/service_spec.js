@@ -6,17 +6,17 @@ describe('Service', function() {
   var $ = require('jquery');
 
   beforeEach(function() {
-    spyOn($, 'get');
+    spyOn($, 'ajax');
   });
 
   describe('.search()', function() {
     it('should call $.get if query supplied', function() {
       service.search('foo');
-      expect($.get).toHaveBeenCalled();
+      expect($.ajax).toHaveBeenCalled();
     });
     it('should not call $.get if no query supplied', function() {
       service.search('');
-      expect($.get).not.toHaveBeenCalled();
+      expect($.ajax).not.toHaveBeenCalled();
     });
   });
 
