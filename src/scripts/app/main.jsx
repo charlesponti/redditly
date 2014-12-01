@@ -3,7 +3,7 @@
 var React = require('react');
 
 var service = require('./service');
-var LinkList = React.createFactory(require('./link-list'));
+var StoryList = React.createFactory(require('./story-list.jsx'));
 
 var Main = React.createClass({
 
@@ -47,19 +47,19 @@ var Main = React.createClass({
       });
   },
 
+  /**
+   * Render component
+   * @return {ReactElement}
+   */
   render: function() {
-    return React.createElement('div', null,
-      React.createElement('h1', { className: 'page-title' }, 'Reddit.ly'),
-        React.createElement('form', { onSubmit: this.onSubmit },
-          React.createElement('input', {
-            type: 'text',
-            name: 'query',
-            className: 'form-control',
-            id: 'reddit-query'
-          })
-        ),
-      React.createElement('div', { className: 'reddit-images' }),
-      LinkList({ links: this.state.links })
+    return (
+      <div>
+        <h1 className="page-title">Redditly</h1>
+        <form onSubmit={this.onSubmit} role="form">
+          <input type="text" name="query" className="form-control"/>
+        </form>
+        <StoryList links={this.state.links}/>
+      </div>
     );
   }
 
