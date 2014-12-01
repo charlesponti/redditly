@@ -4,7 +4,7 @@ var _ = require('lodash');
 var React = require('react');
 
 var service = require('./service');
-var StoryList = React.createFactory(require('./story-list.jsx'));
+var StoryList = require('./story-list.jsx');
 
 var Main = React.createClass({
 
