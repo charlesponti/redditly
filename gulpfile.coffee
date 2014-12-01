@@ -17,8 +17,8 @@ webpack_config = require './webpack.config'
 
 files =
   scripts:
-    main: 'src/scripts/main.js'
-    source: 'src/scripts/**/*'
+    main: 'src/main.js'
+    source: 'src/app/**/*'
     build: 'build/scripts'
   styles:
     main: 'src/styles/main.less'
