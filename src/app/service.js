@@ -12,11 +12,12 @@ var service = {
     var deferred = new $.Deferred();
 
     if (query) {
-      $.get("http://www.reddit.com/r/"+query+'/.json', {
+      $.ajax({
+        url: "http://www.reddit.com/r/"+query+'/.json',
         success: function(response) {
           deferred.resolve(response);
         },
-        fail: function(response) {
+        error: function(response) {
           deferred.reject(response);
         }
       });
