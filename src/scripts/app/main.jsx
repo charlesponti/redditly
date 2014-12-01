@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var React = require('react');
 
 var service = require('./service');
@@ -9,8 +10,7 @@ var Main = React.createClass({
 
   getInitialState: function() {
     return {
-      links: [],
-      images: []
+      stories: []
     };
   },
 
@@ -18,16 +18,14 @@ var Main = React.createClass({
     return url.slice(url.length-4) === '.jpg';
   },
 
-  filterStories: function(stories) {
-    _.each(stories, function(story) {
-      if (this.isImage(story.data.url)) {
-        this.state.images.push(story.data);
-        this.setState({ images: this.state.images });
-      } else {
-        this.state.links.push(story.data);
-        this.setState({ links: this.state.links });
-      }
-    }.bind(this));
+  /**
+   * Handle successful response from Reddit
+   * @param {object} response Response from Reddit
+   */
+  onSearchSuccess: function(response) {
+    this.setState({
+      stories: _.pluck(response.data.children, 'data')
+    });
   },
 
   /**
@@ -39,9 +37,7 @@ var Main = React.createClass({
     event.preventDefault();
     service
       .search(event.target.query.value)
-      .success(function(res) {
-        this.filterStories(res.data.children);
-      }.bind(this))
+      .success(this.onSearchSuccess)
       .fail(function(res) {
         throw new Error(res.message);
       });
@@ -58,7 +54,7 @@ var Main = React.createClass({
         <form onSubmit={this.onSubmit} role="form">
           <input type="text" name="query" className="form-control"/>
         </form>
-        <StoryList links={this.state.links}/>
+        <StoryList links={this.state.stories}/>
       </div>
     );
   }
