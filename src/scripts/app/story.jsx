@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var TextBox = React.createClass({
+var Story = React.createClass({
 
   propTypes: {
     link: React.PropTypes.object
@@ -23,17 +23,13 @@ var TextBox = React.createClass({
    * @return {ReactElement}
    */
   render: function() {
-    return React.createElement('li', {
-        className: 'list-group-item',
-      },
-      React.createElement('a', {
-          href: this.props.link.permalink
-        },
-        this.props.link.title
-      )
+    return (
+      <li className="list-group-item" key={this.props.link.id}>
+        <a href={this.props.link.permalink}>{this.props.link.title}</a>
+      </li>
     );
   }
 
 });
 
-module.exports = TextBox;
+module.exports = Story;
