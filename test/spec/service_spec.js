@@ -3,8 +3,10 @@
 describe('Service', function() {
 
   var service;
+  var $ = require('jquery');
 
   beforeEach(function() {
+    spyOn($, 'get');
     service = require('../../src/scripts/app/service');
   });
 
@@ -13,11 +15,13 @@ describe('Service', function() {
   });
 
   describe('.search()', function() {
-    it('should call $.get', function() {
-      var $ = require('jquery');
-      spyOn($, 'get');
-      service.search();
+    it('should call $.get if query supplied', function() {
+      service.search('foo');
       expect($.get).toHaveBeenCalled();
+    });
+    it('should not call $.get if no query supplied', function() {
+      service.search('');
+      expect($.get).not.toHaveBeenCalled();
     });
   });
 
