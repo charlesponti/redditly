@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var React = require('react');
 
-var Story = React.createFactory(require('./story.jsx'));
+var Story = require('./story.jsx');
 
 var StoryList = React.createClass({
 
@@ -29,7 +29,7 @@ var StoryList = React.createClass({
     var links = _.map(this.props.links, function(link) {
       return <Story link={link} key={link.id}/>;
     });
-    
+
     return (
       <ul className="list-group">
         {links}
