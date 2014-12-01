@@ -9,6 +9,10 @@ var textBox = React.createClass({
     title: React.PropTypes.string
   },
 
+  /**
+   * Render text link to articles
+   * @return {ReactElement}
+   */
   render: function() {
     return (
       <div class='reddit-text-box'>
