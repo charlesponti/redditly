@@ -49,7 +49,7 @@ var Main = React.createClass({
    */
   render: function() {
     return (
-      <div>
+      <div className="col-xs-10 col-xs-offset-1">
         <h1 className="page-title">Redditly</h1>
         <form onSubmit={this.onSubmit} role="form">
           <input type="text" name="query" className="form-control"/>

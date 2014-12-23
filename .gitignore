@@ -1,4 +1,8 @@
-.idea
+.sass-cache
 .DS_Store
-build/**
+build/scripts/**
+build/styles/**
+build/vendor/**
+build/**/*.html
 node_modules
+*.log

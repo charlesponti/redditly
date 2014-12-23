@@ -83,13 +83,6 @@
 
     // Custom Globals
     "globals": {
-      "_": true,
-      "Backbone": true,
-      "$": true,
-      "HttpFixtures": true,
-      "Cthulhu": true,
-      "Sentinal": true,
-      "sinon": true,
-      "expect": true
+
     }
 }

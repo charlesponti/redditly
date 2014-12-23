@@ -1,12 +1,15 @@
 {
-  "name": "Redditly",
+  "name": "facade",
   "version": "0.0.1",
-  "description": "A Reddit reader application",
+  "description": "A client-side, front-end development boilerplate solution",
   "main": "gulpfile.js",
   "scripts": {
-    "clean": "rm -rf node_modules | npm install",
-    "test": "./node_modules/karma/bin/karma start test/karma.conf.js",
-    "serve": "cd build && http-server -p 3000"
+    "karma": "./node_modules/karma/bin/karma",
+    "gulp": "./node_modules/gulp/bin/gulp.js",
+    "start": "npm run gulp",
+    "build": "npm run gulp build",
+    "build-prod": "npm run gulp prod-build",
+    "test": "npm run karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,7 @@
     "node",
     "html",
     "css",
-    "webpack"
+    "sass"
   ],
   "author": "CJ Ponti <cjponti@gmail.com>",
   "license": "MIT",
@@ -25,37 +28,35 @@
     "url": "https://github.com/theponti/facade/issues"
   },
   "homepage": "https://github.com/theponti/facade",
-  "dependencies": {
-    "backbone": "^1.1.2",
-    "express": "^4.10.4",
-    "jquery": "^2.1.1",
-    "lodash": "^2.4.1",
-    "react": "^0.12.0",
-    "swig": "^1.4.2"
-  },
   "devDependencies": {
-    "coffee-script": "^1.8.0",
-    "css-loader": "^0.9.0",
+    "browser-sync": "^1.8.1",
+    "browserify": "^7.0.3",
+    "connect-history-api-fallback": "0.0.5",
     "gulp": "^3.8.6",
     "gulp-concat": "^2.2.0",
     "gulp-jshint": "~1.5.5",
     "gulp-karma": "0.0.4",
-    "gulp-less": "~1.2.3",
-    "gulp-livereload": "~1.2.0",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-minify-html": "^0.1.7",
     "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-uglify": "^1.0.2",
     "gulp-util": "~2.2.14",
     "gulp-watch": "^0.6.5",
     "jasmine-core": "^2.1.2",
     "jshint-stylish": "~0.1.5",
-    "jsx-loader": "^0.12.0",
     "karma": "^0.12.28",
+    "karma-browserify": "^2.0.0",
     "karma-chrome-launcher": "^0.1.5",
     "karma-jasmine": "^0.3.1",
-    "karma-webpack": "^1.3.1",
-    "less": "^1.7.5",
-    "less-loader": "^0.7.7",
-    "script-loader": "^0.6.0",
-    "style-loader": "^0.8.1",
-    "webpack": "^1.4.10"
+    "reactify": "^0.17.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1",
+    "react": "^0.12.2"
   }
 }

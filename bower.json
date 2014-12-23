@@ -5,7 +5,7 @@
   "authors": [
     "CJ Ponti <cjponti@gmail.com>"
   ],
-  "description": "A boilerplate for a static site",
+  "description": "A client-side, front-end development boilerplate solution",
   "main": "gulpfile.js",
   "keywords": [
     "static",
@@ -24,7 +24,6 @@
     "public/libs"
   ],
   "dependencies": {
-    "jquery": "~2.1.0",
     "modernizr": "~2.7.2",
     "prefix-free": "gh-pages",
     "bootstrap": "~3.3.1"
