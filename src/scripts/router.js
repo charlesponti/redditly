@@ -7,7 +7,7 @@ module.exports = function($locationProvider, $routeProvider) {
 
   $routeProvider
     .when('/', {
-      templateUrl: 'redditly/views/home.html',
+      templateUrl: 'views/home.html',
       controller: 'HomeCtrl'
     })
     .otherwise({
