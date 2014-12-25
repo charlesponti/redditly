@@ -1,10 +1,6 @@
-# Facade
+# Redditly
 
-A client-side, front-end development boilerplate solution.
-
-This version of the project is JavaScript-framework agnostic. Though, it does work off of the CommonJS/Node-style module system.
-
-If you would like to use Angular, take a look at: **[Facade-Angular](https://github.com/theponti/facade-angular)**
+A Reddit.com reader
 
 ## Dependencies
 * NodeJS
@@ -14,8 +10,7 @@ If you would like to use Angular, take a look at: **[Facade-Angular](https://git
 ## Features
 
 ### Build
-* Gulp  
-  This boilerplate uses the version of `Gulp` in the `node_modules` directory so you will not need to have it installed globally.
+* Gulp
 * Browserify
 
 ### Styles
@@ -28,8 +23,7 @@ If you would like to use Angular, take a look at: **[Facade-Angular](https://git
 * jQuery
 
 ### Testing
-* Karma  
-  This boilerplate uses the version of `Karma` in the `node_modules` directory so you will not need to have it installed globally.
+* Karma
 * Jasmine
 
 ### Other
@@ -39,9 +33,7 @@ If you would like to use Angular, take a look at: **[Facade-Angular](https://git
 ## Usage
 1. Clone repo
 2. Run `npm install && bower install`
-3. Run `rm -rf .git && git init`
-4. Run `npm run start`
-5. Start Coding
+3. Run `npm run start`
 
 ## Tasks
 
