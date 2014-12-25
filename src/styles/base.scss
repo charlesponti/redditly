@@ -32,6 +32,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 #app {
   padding-top: 65px;
 }
