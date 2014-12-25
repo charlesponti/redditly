@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var $ = require('jquery');
 
 module.exports = function($scope, Reddit) {
   /**
@@ -8,6 +9,8 @@ module.exports = function($scope, Reddit) {
    * @type {String}
    */
   $scope.title = "Redditly";
+
+  $scope.error = false;
 
   /**
    * Store the current search query
@@ -27,12 +30,18 @@ module.exports = function($scope, Reddit) {
    */
   $scope.links = [];
 
+  $scope.toggleError = function() {
+    this.error = !this.error;
+  };
+
   /**
    * Handle successful response from Reddit
    * @param {Object} response Response from Reddit
    */
   $scope.onSearchSuccess = function(response) {
+    $('.search .list-group').removeClass('out');
     $scope.query = "";
+    $scope.toggleError();
     $scope.links = _.pluck(response.data.children, 'data');
     return $scope;
   };
@@ -42,15 +51,19 @@ module.exports = function($scope, Reddit) {
    * @param {Object} response Response from Reddit
    */
   $scope.onSearchFail = function(response) {
-    return console.warn(response.message);
+    $('.search .list-group').removeClass('out');
+    $scope.links = [];
+    $scope.toggleError();
+    return $scope;
   };
 
   /**
    * Handle submission of search form
    */
   $scope.onSubmit = function() {
+    $('.search .list-group').addClass('out');
     $scope.currentSearch = $scope.query;
-    var promise = Reddit.get({ query: $scope.query }).$promise;
+    var promise = Reddit.get({ query: $scope.query.replace(' ','') }).$promise;
     promise.then($scope.onSearchSuccess);
     promise.catch($scope.onSearchFail);
     return promise;
