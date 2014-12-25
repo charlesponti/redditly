@@ -41,11 +41,7 @@ module.exports = function($scope, Reddit) {
   $scope.onSearchSuccess = function(response) {
     $('.search .list-group').removeClass('out');
     $scope.query = "";
-
-    if ($scope.error) {
-      $scope.toggleError();
-    }
-    
+    $scope.error = false;
     $scope.links = _.pluck(response.data.children, 'data');
     return $scope;
   };
@@ -57,7 +53,7 @@ module.exports = function($scope, Reddit) {
   $scope.onSearchFail = function(response) {
     $('.search .list-group').removeClass('out');
     $scope.links = [];
-    $scope.toggleError();
+    $scope.error = true;
     return $scope;
   };
 

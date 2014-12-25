@@ -7,8 +7,26 @@
     background-color: white;
     border: 0px;
     border-bottom: 2px solid white;
-    color: yellow;
     cursor: pointer;
+    font-family: Fenice ITC W01 Bold;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 20px;
+    a {
+        color: black;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .ups {
+        color: green;
+    }
+    .downs {
+        color: red;
+    }
+    &:hover {
+        background: aliceblue;
+    }
 }
 
 .story-error {

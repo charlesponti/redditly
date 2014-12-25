@@ -9,7 +9,13 @@ require('angularfire');
 
 var angular = window.angular;
 
-angular.module('Redditly', ['ngRoute', 'ngResource', 'ngAnimate', 'firebase'])
+angular.module('Redditly', [
+    'ngRoute',
+    'ngResource',
+    'ngAnimate',
+    'ngMaterial',
+    'firebase'
+  ])
   .config(require('./router'))
   .factory('Reddit', require('./services/reddit'))
   .controller('HomeCtrl', require('./controllers/home'));

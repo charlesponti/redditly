@@ -15,8 +15,15 @@
         <li class="list-group-item story-error" ng-show="error">
             <h4> No posts for {{ currentSearch }} found. </h4>
         </li>
-        <li class="list-group-item story" ng-repeat="link in links" ng-animate="'animate'">
-            <a href="{{link.url}}">{{link.title}}</a>
+        <li class="list-group-item row story" ng-repeat="link in links" ng-animate="'animate'">
+            <div class="col-xs-2 text-center">
+                <div class="ups">+{{link.ups}}</div>
+                <div class="downs">-{{link.downs}}</div>
+            </div>
+            <div class="col-xs-10">
+                <a href="{{link.url}}">{{link.title}}</a>
+            </div>
+
         </li>
     </ul>
 
