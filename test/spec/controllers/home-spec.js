@@ -23,4 +23,20 @@ describe('Controllers: HomeCtrl', function() {
     expect($scope.links).toEqual([]);
   });
 
+  it('should have error set to false', function() {
+    expect($scope.error).toEqual(false);
+  });
+
+  describe('.toggleError()', function() {
+    it('should set error to true', function() {
+      $scope.toggleError();
+      expect($scope.error).toEqual(true);
+    });
+    it('should set error to false', function() {
+      $scope.error = true;
+      $scope.toggleError();
+      expect($scope.error).toEqual(false);
+    });
+  });
+
 });
