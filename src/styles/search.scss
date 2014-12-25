@@ -1,3 +1,16 @@
 .current-search {
     color: rgb(52, 203, 35);
 }
+
+.story {
+    background-color: white;
+    border: 0px;
+    border-bottom: 2px solid white;
+    color: yellow;
+    cursor: pointer;
+}
+
+.story-error {
+    text-align: center;
+    color: red;
+}
