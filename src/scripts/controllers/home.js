@@ -2,7 +2,7 @@
 
 var _ = require('lodash');
 
-module.exports = function($scope, RedditService) {
+module.exports = function($scope, Reddit) {
   /**
    * Title of page
    * @type {String}
@@ -42,10 +42,10 @@ module.exports = function($scope, RedditService) {
    * Handle submission of search form
    */
   $scope.onSubmit = function() {
-    return RedditService
-            .search($scope.query)
-            .then($scope.onSearchSuccess)
-            .catch($scope.onSearchFail);
+    var promise = Reddit.get({ query: $scope.query }).$promise;
+    promise.then($scope.onSearchSuccess);
+    promise.catch($scope.onSearchFail);
+    return promise;
   };
 
   return $scope;
