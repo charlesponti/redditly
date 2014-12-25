@@ -32,6 +32,7 @@ module.exports = function($scope, Reddit) {
    * @param {Object} response Response from Reddit
    */
   $scope.onSearchSuccess = function(response) {
+    $scope.query = "";
     $scope.links = _.pluck(response.data.children, 'data');
     return $scope;
   };
