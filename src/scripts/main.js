@@ -7,7 +7,7 @@ require('angular-resource');
 
 var angular = window.angular;
 
-angular.module('Redditly', ['ngRoute'])
+angular.module('Redditly', ['ngRoute', 'ngResource'])
   .config(require('./router'))
-  .factory('RedditService', require('./services/reddit'))
+  .factory('Reddit', require('./services/reddit'))
   .controller('HomeCtrl', require('./controllers/home'));
