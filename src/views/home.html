@@ -1,0 +1,11 @@
+<div class="col-xs-12 col-s-10 col-s-offset-1">
+    <form role="form" ng-submit="onSubmit()">
+        <input type="text" name="query" ng-model="query" class="form-control"/>
+    </form>
+    <br/>
+    <ul class="list-group">
+        <li class="list-group-item story" ng-repeat="link in links">
+            <a href="{{link.url}}">{{link.title}}</a>
+        </li>
+    </ul>
+</div>
