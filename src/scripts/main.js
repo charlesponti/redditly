@@ -5,10 +5,11 @@ require('angular');
 require('angular-route');
 require('angular-resource');
 require('angular-animate');
+require('angularfire');
 
 var angular = window.angular;
 
-angular.module('Redditly', ['ngRoute', 'ngResource', 'ngAnimate'])
+angular.module('Redditly', ['ngRoute', 'ngResource', 'ngAnimate', 'firebase'])
   .config(require('./router'))
   .factory('Reddit', require('./services/reddit'))
   .controller('HomeCtrl', require('./controllers/home'));
