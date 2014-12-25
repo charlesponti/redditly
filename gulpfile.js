@@ -31,16 +31,16 @@ var files = {
   scripts: {
     main: './src/scripts/main.js',
     source: './src/scripts/**/*.js',
-    build: './build/scripts'
+    build: './build/redditly/scripts'
   },
   styles: {
     main: './src/styles/main.scss',
     source: './src/styles/**/*.scss',
-    build: './build/styles'
+    build: './build/redditly/styles'
   },
   html: {
     source: './src/**/*.html',
-    build: './build'
+    build: './build/redditly/'
   }
 };
 
