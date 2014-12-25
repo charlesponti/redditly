@@ -10,6 +10,12 @@ module.exports = function($scope, Reddit) {
   $scope.title = "Redditly";
 
   /**
+   * Store the current search query
+   * @type {String}
+   */
+  $scope.currentSearch = "";
+
+  /**
    * Query from search form
    * @type {String}
    */
@@ -42,6 +48,7 @@ module.exports = function($scope, Reddit) {
    * Handle submission of search form
    */
   $scope.onSubmit = function() {
+    $scope.currentSearch = $scope.query;
     var promise = Reddit.get({ query: $scope.query }).$promise;
     promise.then($scope.onSearchSuccess);
     promise.catch($scope.onSearchFail);
