@@ -1,0 +1,20 @@
+<div class="col-xs-12 col-s-10 col-s-offset-1">
+
+    <!-- Search form -->
+    <form role="form" ng-submit="onSubmit()">
+        <input type="text" name="query" ng-model="query" class="form-control"/>
+    </form>
+
+    <!-- Current search -->
+    <h3 ng-model="currentSearch" ng-show="currentSearch">
+        Current Search: <span class="current-search">#{{currentSearch}}</span>
+    </h3>
+
+    <!-- List of links -->
+    <ul class="list-group">
+        <li class="list-group-item story" ng-repeat="link in links" ng-animate="'animate'">
+            <a href="{{link.url}}">{{link.title}}</a>
+        </li>
+    </ul>
+
+</div>
