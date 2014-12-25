@@ -1,11 +1,13 @@
 'use strict';
 
 // Dependencies
-var $ = require('jquery');
-var Backbone = require('backbone');
-Backbone.$ = $;
-var React = require('react');
+require('angular');
+require('angular-route');
+require('angular-resource');
 
-// Start Router
-var router = require('./app/router.jsx');
-router.init();
+var angular = window.angular;
+
+angular.module('Redditly', ['ngRoute'])
+  .config(require('./router'))
+  .factory('RedditService', require('./services/reddit'))
+  .controller('HomeCtrl', require('./controllers/home'));
