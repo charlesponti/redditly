@@ -4,13 +4,15 @@
 }
 
 .navbar-brand {
-    background-color: white;
+    background-color: $background;
     float: none;
     display: block;
     text-align: center;
     color: black;
     font-size: 2.5em;
     padding-left: 50px;
+    color: white;
+    letter-spacing: 2px;
     font-family: 'Helvetica Neue';
 }
 

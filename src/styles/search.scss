@@ -1,19 +1,18 @@
 .current-search {
-    color: rgb(52, 203, 35);
+    color: #876794;
     text-align: center;
 }
 
 .story {
-    background-color: white;
+    background-color: $background;
     border: 0px;
     border-bottom: 2px solid white;
     cursor: pointer;
     font-family: Fenice ITC W01 Bold;
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.2em;
     padding: 10px 20px;
     a {
-        color: black;
+        color: whitesmoke;
         &:hover {
             text-decoration: none;
         }
@@ -25,7 +24,7 @@
         color: red;
     }
     &:hover {
-        background: aliceblue;
+        background: rgb(48, 100, 61);
     }
 }
 

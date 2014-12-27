@@ -32,26 +32,26 @@
 
 html, body {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  background: #38C0A5; }
 
 #app {
   padding-top: 65px; }
 
 .current-search {
-  color: #34cb23;
+  color: #876794;
   text-align: center; }
 
 .story {
-  background-color: white;
+  background-color: #38C0A5;
   border: 0px;
   border-bottom: 2px solid white;
   cursor: pointer;
   font-family: Fenice ITC W01 Bold;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.2em;
   padding: 10px 20px; }
   .story a {
-    color: black; }
+    color: whitesmoke; }
     .story a:hover {
       text-decoration: none; }
   .story .ups {
@@ -59,7 +59,7 @@ html, body {
   .story .downs {
     color: red; }
   .story:hover {
-    background: aliceblue; }
+    background: #30643d; }
 
 .story-error {
   text-align: center;
@@ -85,13 +85,15 @@ html, body {
   width: 100%; }
 
 .navbar-brand {
-  background-color: white;
+  background-color: #38C0A5;
   float: none;
   display: block;
   text-align: center;
   color: black;
   font-size: 2.5em;
   padding-left: 50px;
+  color: white;
+  letter-spacing: 2px;
   font-family: 'Helvetica Neue'; }
 
 .icon-bar {
