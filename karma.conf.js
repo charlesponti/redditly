@@ -13,13 +13,14 @@ module.exports = function(config) {
     ],
 
     files: [
-      'node_modules/angular/angular.min.js',
+      'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'src/scripts/main.js',
       'test/**/*spec.js'
     ],
 
     preprocessors: {
-      'test/**/*spec.js': ['browserify']
+      'src/scripts/**/*.js': ['browserify']
     },
 
     browserify: {
