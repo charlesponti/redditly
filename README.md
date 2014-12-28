@@ -1,6 +1,8 @@
+[ ![Codeship Status for theponti/redditly](https://codeship.com/projects/a2518c30-7116-0132-3104-62f5102d8589/status?branch=master)](https://codeship.com/projects/54568)
+
 # Redditly
 
-A Reddit.com reader
+An AngularJS Reddit reader
 
 ## Dependencies
 * NodeJS
