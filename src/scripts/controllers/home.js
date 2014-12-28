@@ -4,12 +4,17 @@ var _ = require('lodash');
 var $ = require('jquery');
 
 module.exports = function($scope, Reddit) {
+
   /**
    * Title of page
    * @type {String}
    */
   $scope.title = "Redditly";
 
+  /**
+   * If there has been a request error
+   * @type {Boolean}
+   */
   $scope.error = false;
 
   /**
