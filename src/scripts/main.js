@@ -7,13 +7,10 @@ require('angular-resource');
 require('angular-animate');
 require('angularfire');
 
-var angular = window.angular;
-
 angular.module('Redditly', [
     'ngRoute',
     'ngResource',
     'ngAnimate',
-    'ngMaterial',
     'firebase'
   ])
   .config(require('./router'))
