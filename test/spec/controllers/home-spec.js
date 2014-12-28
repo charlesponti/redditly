@@ -1,18 +1,23 @@
+/* global angular */
+
 describe('Controllers: HomeCtrl', function() {
   'use strict';
 
-  var $scope, $location, service;
-  var HomeCtrl = require('../../../src/scripts/controllers/home');
+  var $scope;
 
   beforeEach(function() {
-    $scope = {};
-    service = {};
-    HomeCtrl($scope);
+    angular.mock.module('Redditly');
+
+    // mock the controller
+    angular.mock.inject(function($rootScope, $controller) {
+      $scope = $controller('HomeCtrl', {
+        $scope: $rootScope.$new()
+      });
+    });
   });
 
   afterEach(function() {
     $scope = undefined;
-    service = undefined;
   });
 
   it('should have title defined', function() {
