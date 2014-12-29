@@ -15,11 +15,11 @@ module.exports = function(config) {
     files: [
       'src/scripts/main.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'test/**/*.js'
+      'test/unit/**/*.js'
     ],
 
     preprocessors: {
-      'test/**/*.js': ['browserify'],
+      'test/unit/**/*.js': ['browserify'],
       'src/scripts/**/*.js': ['browserify']
     },
 
