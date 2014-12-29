@@ -16,7 +16,6 @@ var sass = require('gulp-ruby-sass');
 var minifycss = require('gulp-minify-css');
 
 // Browserify Dependencies
-var reactify = require('reactify');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
@@ -65,9 +64,8 @@ gulp.task('build-scripts', ['jshint'], function() {
     debug: true,
     cache: {},
     packageCache: {},
-    extensions: ['.js','.jsx']
+    extensions: ['.js']
   })
-  .transform('reactify')
   .bundle()
   .pipe(source('bundle.js'))
   .pipe(gulp.dest(files.scripts.build))
