@@ -21,6 +21,14 @@ var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
+// Protractor
+var protractor      = require('gulp-protractor').protractor;
+var webdriver       = require('gulp-protractor').webdriver;
+var webdriverUpdate = require('gulp-protractor').webdriver_update;
+
+gulp.task('webdriver-update', webdriverUpdate);
+gulp.task('webdriver', webdriver);
+
 // Dev Server
 var port = 4000;
 var browserSync = require('browser-sync');
@@ -112,6 +120,19 @@ gulp.task('test', function(done) {
   return karma.server.start({
     configFile: __dirname + '/karma.conf.js'
   }, done);
+});
+
+gulp.task('protractor', ['webdriver-update', 'webdriver' ], function() {
+
+  return gulp.src('test/e2e/**/*.js')
+    .pipe(protractor({
+        configFile: './protractor.conf.js',
+    }))
+    .on('error', function(err) {
+      // Make sure failed tests cause gulp to exit non-zero
+      throw err;
+    });
+
 });
 
 gulp.task('server', function() {
