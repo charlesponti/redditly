@@ -5,9 +5,9 @@ describe('Controllers: HomeCtrl', function() {
 
   var $scope;
 
-  beforeEach(function() {
-    angular.mock.module('Redditly');
+  require('../spec-helper.js');
 
+  beforeEach(function() {
     // mock the controller
     angular.mock.inject(function($rootScope, $controller) {
       $scope = $controller('HomeCtrl', {
