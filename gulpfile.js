@@ -15,6 +15,9 @@ var uglify = require('gulp-uglify');
 var sass = require('gulp-ruby-sass');
 var minifycss = require('gulp-minify-css');
 
+// Angular Dependencies
+var ngmin = require("gulp-angular-templatecache");
+
 // Browserify Dependencies
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
@@ -103,15 +106,22 @@ gulp.task('build-styles-prod', function() {
   .pipe(gulp.dest(files.styles.build));
 });
 
-gulp.task('build-html', function() {
-  return gulp.src(files.html.source)
-  .pipe(minifyHTML({
-    comments: true,
-    spare: true,
-    empty: true
-  }))
-  .pipe(gulp.dest(files.html.build))
-  .pipe(reload({ stream: true }));
+gulp.task('build-templates', function() {
+  return gulp.src(['./src/views/**/*.html'])
+    .pipe(ngmin())
+    .pipe(gulp.dest('./src/scripts'))
+    .pipe(reload({ stream: true }));
+});
+
+gulp.task('build-index', function() {
+  return gulp.src(['./src/index.html'])
+    .pipe(minifyHTML({
+      comments: true,
+      spare: true,
+      empty: true
+    }))
+    .pipe(gulp.dest('./build'))
+    .pipe(reload({ stream: true }));
 });
 
 gulp.task('test', function(done) {
@@ -148,9 +158,17 @@ gulp.task('server', function() {
   });
 });
 
-gulp.task('build', ['build-styles', 'build-scripts', 'build-html']);
+gulp.task('build', [
+  'build-styles',
+  'build-templates',
+  'build-scripts',
+  'build-index'
+]);
 
-gulp.task('prod-build', ['build-scripts-prod','build-styles-prod']);
+gulp.task('prod-build', [
+  'build-scripts-prod',
+  'build-styles-prod'
+]);
 
 gulp.task('default', [ 'build', 'server' ], function() {
 
@@ -158,8 +176,12 @@ gulp.task('default', [ 'build', 'server' ], function() {
     return gulp.start('build-styles');
   });
 
+  watch({ glob: './src/views/**/*.html' }, function() {
+    return gulp.start('build-templates');
+  });
+
   watch({ glob: files.html.source }, function() {
-    return gulp.start('build-html');
+    return gulp.start('build-index');
   });
 
   return watch({ glob: files.scripts.source }, function() {
