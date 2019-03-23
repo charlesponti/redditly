@@ -64,6 +64,6 @@
     "gulp-protractor": "0.0.12",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
-    "protractor": "^1.5.0"
+    "protractor": "^6.0.0"
   }
 }
